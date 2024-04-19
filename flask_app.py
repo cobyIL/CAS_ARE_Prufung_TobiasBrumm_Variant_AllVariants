@@ -9,27 +9,71 @@ PYTHONANYWHERE_WEBAPPNAME = "mysite"
 app = Flask(__name__)
 
 my_type_role = """
-    As a digital therapy coach, check in daily with your patient to assess their well-being related to their chronic condition.
-    Use open-ended questions and empathetic dialogue to create a supportive environment.
-    Reflectively listen and encourage elaboration to assess the patient's detailed condition without directing the topic.
+Deine Rollen Promt:
+- Du schlüpfst in die Rolle eines Chatbots und Finanz-Coaches.
+- Deine Aufgabe besteht darin, die deine Nutzer bezüglich ihrem Vorsorgeverhalten zu beraten.
+- Berate und beantworte Fragen deiner Nutzer zu deren Finanzvorsorge.
+- Sensibilisiere zudem die Nutzer in der Wichtigkeit des erstellens und einhalten von Finanzplänen.
+- Schreibe nicht zu viel auf einmal, sondern führe ein natürliches gespräch.
 """
-
-my_instance_context = """
-    Meet Daniel Müller, 52, who is tackling obesity with a therapy plan that includes morning-to-noon intermittent fasting, 
-    thrice-weekly 30-minute swims, and a switch to whole grain bread.
-"""
-
 my_instance_starter = """
-Jetzt, frage nach dem Namen und einem persönlichen Detail (z.B. Hobby, Beruf, Lebenserfahrung).
-Verwende diese im geschlechtsneutralem Gespräch in Du-Form.
-Sobald ein Name und persönliches Detail bekannt ist, zeige eine Liste von Optionen.
+Dein Starter promt:
+- Begrüsse deinen Patienten Paul mit Vornamen.
+- Sag ihm, dass du mit ihm ein paar Fragen zu seiner Finanzvorsorge.
+- Schreibe nicht mehr als zwei Sätze für den Starter
+"""
+#########################
+#Bot 1
+#########################
+my_instance_context = """
+Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+- Um das Konzept der Konsequenzwünschbarkeit und des Gewinn-Verlust-Rahmens in die Baseline-Prompts zu integrieren, können wir die Sprache subtil modifizieren, um die wünschenswerten Ergebnisse der unterstützten Handlung (gewinnorientiert) oder die unerwünschten Ergebnisse des Nicht-Handelns (verlustorientiert) zu betonen. Das Ziel ist es, die ursprüngliche Absicht und Länge der Baseline-Prompts beizubehalten, während diese überzeugenden Elemente eingebaut werden
 """
 
 bot = Chatbot(
     database_file="database/chatbot.db", 
-    type_id="coach",
-    user_id="daniel",
-    type_name="Health Coach",
+    type_id="strategie-1",
+    user_id="strategie-1",
+    type_name="Errinerungs-Coach Strategie 1",
+    type_role=my_type_role,
+    instance_context=my_instance_context,
+    instance_starter=my_instance_starter
+)
+
+#########################
+#Bot 2
+#########################
+
+
+my_instance_context = """
+   Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+   - Sei Aggressiv und Autoritär
+"""
+
+bot = Chatbot(
+    database_file="database/chatbot.db", 
+    type_id="strategie-2",
+    user_id="strategie-2",
+    type_name="Errinerungs-Coach Strategie 2",
+    type_role=my_type_role,
+    instance_context=my_instance_context,
+    instance_starter=my_instance_starter
+)
+
+#########################
+#Bot 3
+#########################
+
+my_instance_context = """
+   Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+   - Sei Versändinsvoll und Einfühlsam
+"""
+
+bot = Chatbot(
+    database_file="database/chatbot.db", 
+    type_id="strategie-3",
+    user_id="strategie-3",
+    type_name="Errinnerungs-Coach Strategie 3",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
