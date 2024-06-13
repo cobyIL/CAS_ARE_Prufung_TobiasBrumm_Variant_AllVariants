@@ -116,6 +116,26 @@ def get_first_pdf():
 def chatbot(type_id: str, user_id: str):
     return render_template("chat.html")
 
+@app.route("/<type_id>/<user_id>/themenauswahl/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat-themenauswahl.html")
+
+@app.route("/<type_id>/<user_id>/quiz/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat-quiz.html")
+
+@app.route("/<type_id>/<user_id>/scoreboard/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat-scoreboard.html")
+
+@app.route("/<type_id>/<user_id>/it-security-news/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat-news.html")
+
+@app.route("/<type_id>/<user_id>/phishing/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat-phishing.html")
+
 
 @app.route("/<type_id>/<user_id>/info")
 def info_retrieve(type_id: str, user_id: str):
