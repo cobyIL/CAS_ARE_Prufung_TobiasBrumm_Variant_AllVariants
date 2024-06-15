@@ -112,33 +112,15 @@ def get_first_pdf():
 
     return "No PDF file found in the root folder."
 
-@app.route("/<type_id>/<user_id>/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat.html")
+@app.route("/<type_id>/<user_id>/<chatbot_scope>/chat")
+def chatbot(type_id: str, user_id: str, chatbot_scope: str):
+    img_path = "images/"+ chatbot_scope +".jpg"
+    type_id = type_id
+    user_id = user_id
+    return render_template("chat.html", type_id=type_id, user_id=user_id, img_path=img_path)
 
-@app.route("/<type_id>/<user_id>/themenauswahl/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat-themenauswahl.html")
-
-@app.route("/<type_id>/<user_id>/quiz/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat-quiz.html")
-
-@app.route("/<type_id>/<user_id>/scoreboard/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat-scoreboard.html")
-
-@app.route("/<type_id>/<user_id>/it-security-news/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat-news.html")
-
-@app.route("/<type_id>/<user_id>/phishing/chat")
-def chatbot(type_id: str, user_id: str):
-    return render_template("chat-phishing.html")
-
-
-@app.route("/<type_id>/<user_id>/info")
-def info_retrieve(type_id: str, user_id: str):
+@app.route("/<type_id>/<user_id>/<chatbot_scope>/info")
+def info_retrieve(type_id: str, user_id: str, chatbot_scope: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
@@ -148,8 +130,8 @@ def info_retrieve(type_id: str, user_id: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/conversation")
-def conversation_retrieve(type_id: str, user_id: str):
+@app.route("/<type_id>/<user_id>/<chatbot_scope>/conversation")
+def conversation_retrieve(type_id: str, user_id: str, chatbot_scope: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
@@ -159,8 +141,8 @@ def conversation_retrieve(type_id: str, user_id: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/response_for", methods=["POST"])
-def response_for(type_id: str, user_id: str):
+@app.route("/<type_id>/<user_id>/<chatbot_scope>/response_for", methods=["POST"])
+def response_for(type_id: str, user_id: str, chatbot_scope: str):
     user_says = None
     # content_type = request.headers.get('Content-Type')
     # if (content_type == 'application/json; charset=utf-8'):
@@ -181,8 +163,8 @@ def response_for(type_id: str, user_id: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/reset", methods=["DELETE"])
-def reset(type_id: str, user_id: str):
+@app.route("/<type_id>/<user_id>/<chatbot_scope>/reset", methods=["DELETE"])
+def reset(type_id: str, user_id: str, chatbot_scope: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,

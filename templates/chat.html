@@ -112,7 +112,7 @@
           <div class="col-md-6 left-panel">
             <div class="mx-auto">
               <!-- Bild hinzugefügt -->
-                <img src="quiz.jpg" alt="Description of image" class="rounded mx-auto"> 
+                <img src="{{ url_for('static', filename=img_path) }}" alt="Description of image" class="rounded" style="max-width:100%;max-height:100%;"> 
             </div>          
           </div>
           <!-- Right Panel -->
@@ -141,12 +141,13 @@
                   </div>
                   <div class="button-group">
                     <div class="button-pair">
-                      <button class="btn btn-custom" href="/strategie-1/strategie-1/themenauswahl/chat" type="button">Themen für mich</button>
-                      <button class="btn btn-custom" href="/strategie-1/strategie-1/quiz/chat" type="button">Meine Quizes</button>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/topics/chat" type="button">Themen für mich</a>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/quiz/chat" type="button">Meine Quizes</a>
                     </div>
                     <div class="button-pair">
-                      <button class="btn btn-custom" href="/strategie-1/strategie-1/scoreboard/chat" type="button">Mein Scoreboard</button>
-                      <button class="btn btn-custom" href="/strategie-1/strategie-1/it-security-news/chat" type="button">IT-Security News</button>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/scoreboard/chat" type="button">Mein Scoreboard</a>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/news/chat" type="button">IT-Security News</a>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/phishing/chat" type="button">IT-Security News</a>
                     </div>
                   </div>
                 </div>
