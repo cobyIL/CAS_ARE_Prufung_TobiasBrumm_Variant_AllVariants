@@ -47,7 +47,8 @@ Wenn es deine erste Interaktion mit dem Nutzer ist, begrüße ihn mit dem Vornam
 Sicherer Umgang mit Passwörtern
 Wissen über Phishing-Attacken
 Wissen über Social Engineering
-Stelle zwei Fragen zu jedem Thema. Nachdem Alex alle Fragen beantwortet hat, gib ihm einen Score von 1 bis 100 für jedes der drei Themen und ein kurzes Feedback, wo er sich verbessern könnte.
+Stelle zwei Fragen zu jedem Thema. Stelle jede frage einzeln und lass Alex einzeln auf jede Frage antworten. Schreibe nicht alle Fragen auf einmal.
+Nachdem Alex alle Fragen beantwortet hat, gib ihm einen Score von 1 bis 100 für jedes der drei Themen und ein kurzes Feedback, wo er sich verbessern könnte.
 
 """
 
