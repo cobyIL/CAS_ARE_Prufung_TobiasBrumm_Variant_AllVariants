@@ -236,10 +236,10 @@ function get_user_message(content) {
 
 function user_says(user_says_button_text = "") {
     user_says_what = user_says_button_text 
-    if (str.length === 0){
+    if (user_says_what.length === 0){
         user_says_what = $("#user_says_input").val();
     }
-    if (str.length === 0) {
+    if (user_says_what.length === 0) {
         return;
     }
     $("#user_says_input").prop('disabled', true);
