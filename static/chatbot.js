@@ -231,10 +231,10 @@ function animate_istyping() {
 }
 
 function get_user_message(content) {
-    return $("<div>").addClass("d-flex flex-row justify-content-end mb-4").append($("<div>").addClass("p-3 me-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("small mb-0").text(content)), $("<i>").addClass("bi bi-person-bounding-box").attr("style", "font-size: 2rem;"));
+    return $("<div>").addClass("d-flex flex-row justify-content-end mb-4").append($("<div>").addClass("p-3 me-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("mb-0").attr("style", "font-size: x-large;").text(content)), $("<i>").addClass("bi bi-person-bounding-box").attr("style", "font-size: 2rem;"));
 }
 
-function user_says(user_says_button_text = "") {
+function user_says(user_says_button_text = "", image_name = "") {
     user_says_what = user_says_button_text 
     if (user_says_what.length === 0){
         user_says_what = $("#user_says_input").val();
@@ -242,6 +242,11 @@ function user_says(user_says_button_text = "") {
     if (user_says_what.length === 0) {
         return;
     }
+    if (image_name.length !== 0){
+        document.getElementById("imgContent").src="https://cas-are-prufung-tobiasbrumm-variant.onrender.com/static/images/"+image_name;
+    }
+
+
     $("#user_says_input").prop('disabled', true);
     $("#user_says_input").val("");
     show_user_says_incremental(user_says_what);

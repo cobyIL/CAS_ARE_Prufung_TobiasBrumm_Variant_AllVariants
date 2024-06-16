@@ -112,7 +112,7 @@
           <div class="col-md-6 left-panel">
             <div class="mx-auto">
               <!-- Bild hinzugefügt -->
-                <img src="{{ url_for('static', filename=img_path) }}" alt="Description of image" class="rounded" style="max-width:100%;max-height:100%;"> 
+                <img id="imgContent" src="https://cas-are-prufung-tobiasbrumm-variant.onrender.com/static/images/phishing.jpg"  class="rounded" style="max-width:100%;max-height:100%;"> 
             </div>          
           </div>
           <!-- Right Panel -->
@@ -141,13 +141,13 @@
                   </div>
                   <div class="button-group">
                     <div class="button-pair">
-                      <button class="btn btn-custom" type="button" onclick="user_says('An wlechen Themen soll ich arbeiten')" type="button">Themen für mich</button>
-                      <button class="btn btn-custom" type="button" href="/strategie-1/strategie-1/quiz/chat" onclick="user_says('Welche Quizes hast du für mich')" type="button">Meine Quizes</button>
+                      <button class="btn btn-custom" type="button" onclick="user_says('An wlechen Themen soll ich arbeiten','topics.jpg')" type="button">Themen für mich</button>
+                      <button class="btn btn-custom" type="button" href="/strategie-1/strategie-1/quiz/chat" onclick="user_says('Welche Quizes hast du für mich','quiz.jpg')" type="button">Meine Quizes</button>
                     </div>
                     <div class="button-pair">
-                      <a class="btn btn-custom" type="button" href="/strategie-1/strategie-1/scoreboard/chat" onclick="user_says('Zeig mir mein Scoreboard')" type="button">Mein Scoreboard</a>
-                      <a class="btn btn-custom" href="/strategie-1/strategie-1/news/chat"  onclick="user_says('Was sind aktuelle IT-Secuirty-News')" type="button">IT-Security News</a>
-                      <a class="btn btn-custom" href="/strategie-1/strategie-1/phishing/chat" onclick="user_says('Was habe ich zum Thema Phishing noch nicht gelernt')" type="button">Thema: Phishing</a>
+                      <a class="btn btn-custom" type="button" href="/strategie-1/strategie-1/scoreboard/chat" onclick="user_says('Zeig mir mein Scoreboard','scoreboard.jpg')" type="button">Mein Scoreboard</a>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/news/chat"  onclick="user_says('Was sind aktuelle IT-Secuirty-News','chat.jpg')" type="button">IT-Security News</a>
+                      <a class="btn btn-custom" href="/strategie-1/strategie-1/phishing/chat" onclick="user_says('Was habe ich zum Thema Phishing noch nicht gelernt','phishing.jpg')" type="button">Thema: Phishing</a>
                     </div>
                   </div>
                 </div>
