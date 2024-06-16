@@ -24,6 +24,13 @@ Sicherer Umgang mit Passwörtern
 Wissen über Phishing-Attacken
 Wissen über Social Engineering
 Gib neben dem Score dem Benutzer ein kurzes Feedback zu den Themen und sage ihm kurz, wo er sich verbessern könnte.
+
+Wenn der Benutzer nach einem Quiz frage ihn nach dem thema, und stell ihm anschliessend 5 Fragen zu dem Thema. Stelle jede Frage einzeln. Nachdem du alle Fragen gestellt hast, gib den neuen Score zu dem Thema und ein kurzes Feedback sage ihm kurz, wo er sich verbessern könnte.:
+Sicherer Umgang mit Passwörtern
+Wissen über Phishing-Attacken
+Wissen über Social Engineering
+
+
 """
 my_instance_starter = """
 Das ist dein Starter Promt
@@ -32,7 +39,10 @@ Wenn es deine erste Interaktion mit dem Nutzer ist, begrüße ihn mit Vornamen A
 Sicherer Umgang mit Passwörtern
 Wissen über Phishing-Attacken
 Wissen über Social Engineering
-Stelle pro Thema maximal 3 Fragen. Gib ihm anschließend einen Score zu den drei Themen von 1 bis 100 und gib neben dem Score dem Benutzer ein kurzes Feedback zu den Themen und sage ihm kurz, wo er sich verbessern könnte.
+Stelle 3 Fragen für jedes Thema. Stelle jede Frag auf einmal. 
+Nachdem du alle Fragen gestellt hast, gib ihm anschließend einen Score zu den drei Themen von 1 bis 100 und gib neben dem Score dem Benutzer ein sehr kurzes Feedback zu den Themen und sage ihm kurz, wo er sich verbessern könnte.
+
+
 """
 
 #########################
@@ -47,7 +57,7 @@ bot = Chatbot(
     database_file="database/chatbot.db", 
     type_id="strategie-1",
     user_id="strategie-1",
-    type_name="Errinerungs-Coach Strategie 1",
+    type_name="IT-Security Mentor von Alex",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
@@ -112,15 +122,12 @@ def get_first_pdf():
 
     return "No PDF file found in the root folder."
 
-@app.route("/<type_id>/<user_id>/<chatbot_scope>/chat")
-def chatbot(type_id: str, user_id: str, chatbot_scope: str):
-    img_path = "images/"+ chatbot_scope +".jpg"
-    type_id = type_id
-    user_id = user_id
-    return render_template("chat.html", type_id=type_id, user_id=user_id, img_path=img_path)
+@app.route("/<type_id>/<user_id>/chat")
+def chatbot(type_id: str, user_id: str):
+    return render_template("chat.html")
 
-@app.route("/<type_id>/<user_id>/<chatbot_scope>/info")
-def info_retrieve(type_id: str, user_id: str, chatbot_scope: str):
+@app.route("/<type_id>/<user_id>/info")
+def info_retrieve(type_id: str, user_id: str:
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
@@ -130,8 +137,8 @@ def info_retrieve(type_id: str, user_id: str, chatbot_scope: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/<chatbot_scope>/conversation")
-def conversation_retrieve(type_id: str, user_id: str, chatbot_scope: str):
+@app.route("/<type_id>/<user_id>/conversation")
+def conversation_retrieve(type_id: str, user_id: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
@@ -141,8 +148,8 @@ def conversation_retrieve(type_id: str, user_id: str, chatbot_scope: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/<chatbot_scope>/response_for", methods=["POST"])
-def response_for(type_id: str, user_id: str, chatbot_scope: str):
+@app.route("/<type_id>/<user_id>/response_for", methods=["POST"])
+def response_for(type_id: str, user_id: str):
     user_says = None
     # content_type = request.headers.get('Content-Type')
     # if (content_type == 'application/json; charset=utf-8'):
@@ -163,8 +170,8 @@ def response_for(type_id: str, user_id: str, chatbot_scope: str):
     return jsonify(response)
 
 
-@app.route("/<type_id>/<user_id>/<chatbot_scope>/reset", methods=["DELETE"])
-def reset(type_id: str, user_id: str, chatbot_scope: str):
+@app.route("/<type_id>/<user_id>/reset", methods=["DELETE"])
+def reset(type_id: str, user_id: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
