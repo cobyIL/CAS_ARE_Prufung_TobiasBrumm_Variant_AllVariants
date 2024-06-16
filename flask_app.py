@@ -127,7 +127,7 @@ def chatbot(type_id: str, user_id: str):
     return render_template("chat.html")
 
 @app.route("/<type_id>/<user_id>/info")
-def info_retrieve(type_id: str, user_id: str:
+def info_retrieve(type_id: str, user_id: str):
     bot: Chatbot = Chatbot(
         database_file="database/chatbot.db",
         type_id=type_id,
