@@ -168,8 +168,8 @@ function show_conversation(conversation) {
 function scroll_down() {
     // $('html,body').animate({scrollTop: document.body.scrollHeight / 2}, 'fast');
     // $("section")[0].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-    $('html,body').animate({
-        scrollTop: document.body.scrollHeight
+   $("#messages").animate({
+        scrollTop: document.getElementById("messages").scrollHeight
     }, 'fast');
 }
 
@@ -189,9 +189,7 @@ function start_assistant_istyping_temp() {
     animate_istyping_interval = setInterval(function () {
         animate_istyping()
     }, 700);
-    $('html,body').animate({
-        scrollTop: 9999
-    }, 'slow');
+    scroll_down();
 }
 
 function stop_assistant_istyping_temp() {
@@ -216,11 +214,11 @@ function show_assistant_says_incremental_recursively(assistant_says_what_list, i
 }
 
 function get_assistant_message(content) {
-    return $("<div>").addClass("d-flex flex-row justify-content-start mb-4").append($("<i>").addClass("bi bi-emoji-sunglasses").attr("style", "font-size: 2rem;"), $("<div>").addClass("p-3 ms-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("small mb-0").html(content)));
+    return $("<div>").addClass("d-flex flex-row justify-content-start mb-4").append($("<i>").addClass("bi bi-emoji-sunglasses").attr("style", "font-size: 2rem;"), $("<div>").addClass("p-3 ms-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("mb-0").attr("style", "font-size: x-large;").html(content)));
 }
 
 function get_assistant_istyping_message() {
-    return $("<div>").addClass("temporary d-flex flex-row justify-content-start mb-4").append($("<i>").addClass("bi bi-emoji-sunglasses").attr("style", "font-size: 2rem;"), $("<div>").addClass("p-3 ms-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("small mb-0").append($("<i>").addClass("bi bi-chat aaa").attr("id", "istyping_icon"))));
+    return $("<div>").addClass("temporary d-flex flex-row justify-content-start mb-4").append($("<i>").addClass("bi bi-emoji-sunglasses").attr("style", "font-size: 2rem;"), $("<div>").addClass("p-3 ms-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("mb-0").attr("style", "font-size: x-large;").append($("<i>").addClass("bi bi-chat aaa").attr("id", "istyping_icon"))));
 }
 
 function animate_istyping() {
@@ -236,9 +234,12 @@ function get_user_message(content) {
     return $("<div>").addClass("d-flex flex-row justify-content-end mb-4").append($("<div>").addClass("p-3 me-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("small mb-0").text(content)), $("<i>").addClass("bi bi-person-bounding-box").attr("style", "font-size: 2rem;"));
 }
 
-function user_says() {
-    user_says_what = $("#user_says_input").val();
-    if (!user_says_what) {
+function user_says(user_says_button_text = "") {
+    user_says_what = er_says_button_text 
+    if (str.length === 0){
+        user_says_what = $("#user_says_input").val();
+    }
+    if (str.length === 0) {
         return;
     }
     $("#user_says_input").prop('disabled', true);
