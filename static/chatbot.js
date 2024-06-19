@@ -215,6 +215,7 @@ function show_assistant_says_incremental_recursively(assistant_says_what_list, i
 
 function get_assistant_message(content) {
     content = content.replace(/\n/g, "<br />");
+    content = converter.makeHtml(content);
     return $("<div>").addClass("d-flex flex-row justify-content-start mb-4").append($("<i>").addClass("bi bi-emoji-sunglasses").attr("style", "font-size: 2rem;"), $("<div>").addClass("p-3 ms-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("mb-0").attr("style", "font-size: x-large;").html(content)));
 }
 
@@ -233,6 +234,7 @@ function animate_istyping() {
 
 function get_user_message(content) {
     content = content.replace(/\n/g, "<br />");
+    content = converter.makeHtml(content);
     return $("<div>").addClass("d-flex flex-row justify-content-end mb-4").append($("<div>").addClass("p-3 me-3 border border-secondary").attr("style", "border-radius: 15px;").append($("<p>").addClass("mb-0").attr("style", "font-size: x-large;").text(content)), $("<i>").addClass("bi bi-person-bounding-box").attr("style", "font-size: 2rem;"));
 }
 
