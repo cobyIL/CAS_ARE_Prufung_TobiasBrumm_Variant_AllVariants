@@ -103,6 +103,7 @@ var istyping_icons = [
 
 var session = null;
 var animate_istyping_interval = null;
+var converter = new showdown.Converter(); 
 
 function Session(type_id, user_id) {
     this.type_id = type_id;
